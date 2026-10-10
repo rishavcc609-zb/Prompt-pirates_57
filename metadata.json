@@ -1,0 +1,6 @@
+{
+  "name": "PathFinder - Hyper-Specific Career Roadmap",
+  "description": "Visual career roadmap engine for hyper-specific dream roles with interactive milestone timelines, competency node graphs, skill level progression gauges, and certificate upload vault.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

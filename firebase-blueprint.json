@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with authentication and learning preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "currentSkills": {
+          "type": "array"
+        },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Roadmap": {
+      "title": "Roadmap",
+      "description": "Reverse-engineered career roadmap with month plans and skills",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "industry": { "type": "string" },
+        "targetTimelineMonths": { "type": "number" },
+        "weeklyStudyHours": { "type": "number" },
+        "summary": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "lastUpdated": { "type": "string" }
+      },
+      "required": ["id", "userId", "title"]
+    },
+    "Certificate": {
+      "title": "Certificate",
+      "description": "Uploaded credential proof linked to skills",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "issuer": { "type": "string" },
+        "issueDate": { "type": "string" },
+        "credentialId": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "uploadedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "title", "issuer"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profile document containing learning preferences and profile metadata"
+    },
+    "/users/{userId}/roadmaps/{roadmapId}": {
+      "schema": { "$ref": "#/entities/Roadmap" },
+      "description": "User personal roadmaps and milestone progress"
+    },
+    "/users/{userId}/certificates/{certId}": {
+      "schema": { "$ref": "#/entities/Certificate" },
+      "description": "User uploaded credentials and certification verifications"
+    }
+  }
+}
